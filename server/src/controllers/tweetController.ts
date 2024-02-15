@@ -491,19 +491,20 @@ export const retweetPost = async (req: Request, res: Response): Promise<void> =>
 }
 
 // DELETE
-//@ts-ignore
 export const deleteTweet = async (req: Request, res: Response): Promise<void> => {
     const tweetId: string = req.params.tweetId;
 
     try {
-        const deletedTweet = await TweetM.findByIdAndDelete(tweetId);
+        const tweetDeleted = await TweetM.findByIdAndDelete(tweetId);
 
-        if (!deletedTweet) {
+        if (!tweetDeleted) {
             res.status(400).json({
                 error: "No longer exists."
             });
             return;
         }
+
+        let deletedTweet = tweetDeleted as unknown as ITweet;
 
         if (deletedTweet.file.present) {
             await unlinkAsync(path.resolve(__dirname, "..", "..", "public", "uploads", deletedTweet.file.data));

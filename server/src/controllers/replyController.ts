@@ -502,7 +502,7 @@ export const deleteReply = async (req: Request, res: Response): Promise<void> =>
             return;
         }
 
-        let deletedReply = replyDeleted as IReply;
+        let deletedReply = replyDeleted as unknown as IReply;
 
         if (deletedReply.file.present) {
             await unlinkAsync(path.resolve(__dirname, "..", "..", "public", "uploads", deletedReply.file.data));

@@ -493,14 +493,16 @@ export const deleteReply = async (req: Request, res: Response): Promise<void> =>
     const replyId: string = req.params.replyId;
 
     try {
-        const deletedReply: IReply | null = await ReplyM.findByIdAndDelete(replyId);
+        const replyDeleted = await ReplyM.findByIdAndDelete(replyId);
 
-        if (!deletedReply) {
+        if (!replyDeleted) {
             res.status(400).json({
                 error: "No longer exists."
             });
             return;
         }
+
+        let deletedReply = replyDeleted as IReply;
 
         if (deletedReply.file.present) {
             await unlinkAsync(path.resolve(__dirname, "..", "..", "public", "uploads", deletedReply.file.data));

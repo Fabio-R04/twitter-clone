@@ -1,0 +1,716 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        padding: 0 1rem;
+        position: sticky;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(12px);
+        height: 5.3rem;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+
+        &-back {
+            height: 3.6rem;
+            width: 3.6rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all .2s;
+
+            &:hover {
+                background-color: rgba(239, 243, 244, 0.1);
+            }
+
+            svg {
+                height: 55%;
+                width: 55%;
+                fill: $primary-text;
+            }
+        }
+
+        &-details {
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+
+            &__name {
+                font-family: $primary-font-bold;
+                font-size: 2rem;
+                color: $primary-text;
+            }
+
+            &__count {
+                font-family: $primary-font-thin;
+                font-size: 1.3rem;
+                color: $secondary-text;
+            }
+        }
+    }
+
+    &__bg {
+        height: 19.933rem;
+        width: 100%;
+
+        &-default,
+        &-image {
+            height: 100%;
+            width: 100%;
+        }
+
+        &-image {
+            display: block;
+            object-fit: cover;
+        }
+    }
+
+    &__details {
+        width: 100%;
+        padding: 1.3rem 1.6rem;
+        display: flex;
+        flex-direction: column;
+
+        &-profile {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            &__image {
+                position: relative;
+                bottom: 8.5rem;
+                background-color: $primary-background;
+                box-shadow: rgba(255, 255, 255, 0.03) 0px 0px 2px inset;
+                height: 14.15rem;
+                width: 14.15rem;
+                border: 4px solid black;
+                border-radius: 50%;
+                overflow: hidden;
+                cursor: pointer;
+
+                img {
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    transition: all .2s;
+
+                    &:hover {
+                        opacity: .8;
+                    }
+                }
+            }
+
+            &__edit {
+                max-width: 11.206rem;
+                width: 100%;
+                padding: .8rem 0;
+                text-decoration: none;
+                background-color: $primary-background;
+                text-align: center;
+                font-family: $primary-font-bold;
+                font-size: 1.5rem;
+                color: white;
+                border: 1px solid rgb(83, 100, 113);
+                border-radius: 3rem;
+                cursor: pointer;
+                transition: all .2s;
+
+                &:hover {
+                    background-color: rgba(239, 243, 244, 0.1);
+                }
+            }
+
+            &__interaction {
+                display: flex;
+                align-items: center;
+                gap: .7rem;
+
+                &-more,
+                &-message {
+                    min-height: 3.6rem;
+                    max-height: 3.6rem;
+                    min-width: 3.6rem;
+                    max-width: 3.6rem;
+                    border: 1px solid rgb(83, 100, 113);
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: all .2s;
+
+                    &:hover {
+                        background-color: rgba(239, 243, 244, 0.1);
+                    }
+
+                    svg {
+                        height: 55%;
+                        width: 55%;
+                        fill: $primary-text;
+                    }
+                }
+
+                &-more {
+                    position: relative;
+                }
+
+                &-following,
+                &-follow {
+                    padding: .8rem 2rem;
+                    display: flex;
+                    justify-content: center;
+                    font-family: $primary-font-bold;
+                    font-size: 1.5rem;
+                    color: white;
+                    border: 1px solid transparent;
+                    border-radius: 3rem;
+                    cursor: pointer;
+                    transition: all .2s;
+                }
+
+                &-following {
+                    min-width: 10.9rem;
+                    background-color: $primary-background;
+                    border: 1px solid rgb(83, 100, 113);
+                    color: $primary-text;
+
+                    &:hover {
+                        background-color: rgba(239, 243, 244, 0.1);
+                    }
+                }
+
+                &-follow {
+                    min-width: 8.767rem;
+                    background-color: $primary-text;
+                    color: black;
+
+                    &:hover {
+                        opacity: .9;
+                    }
+                }
+            }
+        }
+
+        &-info {
+            margin-top: -6.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+
+            &__user {
+                display: flex;
+                flex-direction: column;
+
+                p:nth-child(1) {
+                    font-family: $primary-font-heavy;
+                    font-size: 2rem;
+                    color: $primary-font;
+                }
+
+                p:nth-child(2) {
+                    font-family: $primary-font-thin;
+                    font-size: 1.5rem;
+                    color: $secondary-text;
+                }
+            }
+
+            &__bio {
+                font-family: $primary-font-thin;
+                font-size: 1.5rem;
+                color: $primary-text;
+            }
+
+            &__about {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                @media only screen and (max-width: 31.875em) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+
+                    svg {
+                        height: 1.875rem;
+                        width: 1.875rem;
+                        fill: $secondary-text;
+                    }
+
+                    p,
+                    a {
+                        font-family: $primary-font-thin;
+                        font-size: 1.5rem;
+                        transition: all .2s;
+                    }
+
+                    p {
+                        color: $secondary-text;
+                    }
+
+                    a {
+                        color: $link-text;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            &__stats {
+                display: flex;
+                align-items: center;
+                gap: 1.7rem;
+
+                a {
+                    text-decoration: none;
+                    font-family: $primary-font-thin;
+                    font-size: 1.41rem;
+                    color: $secondary-text;
+                    transition: all .2s;
+                    cursor: pointer;
+
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration-color: $primary-text;
+                    }
+
+                    span {
+                        font-family: $primary-font-heavy;
+                        color: $primary-text;
+                    }
+                }
+            }
+        }
+
+        &-navigation {
+            border-bottom: 1px solid $border-main;
+            transition: all .2s;
+            margin-top: 1.8rem;
+            height: 5.3rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            &__container {
+                height: 100%;
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all .2s;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgba(239, 243, 244, 0.1);
+                }
+            }
+
+            &__link {
+                height: 100%;
+                user-select: none;
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+
+                &-name {
+                    padding-top: .4rem;
+                    margin-top: auto;
+                    font-family: $primary-font-medium;
+                    font-size: 1.5rem;
+                    color: $secondary-text;
+                }
+
+                &-border {
+                    margin-top: auto;
+                    height: 4px;
+                    background-color: transparent;
+                    border-radius: 3rem;
+                }
+
+                &--active {
+                    p {
+                        color: $primary-text !important;
+                    }
+
+                    div {
+                        background-color: rgb(29, 155, 240) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        padding-bottom: 10.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__options {
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        z-index: 50;
+
+        &-container {
+            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px;
+            z-index: 55;
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            background-color: $primary-background;
+            border-radius: 1rem;
+            padding: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            min-width: 20rem;
+            transition: all .2s;
+            cursor: pointer;
+            user-select: none;
+
+            &:hover {
+                background-color: rgb(22, 24, 28);
+            }
+
+            svg {
+                height: 1.875rem;
+                width: 1.875rem;
+                fill: $primary-text;
+            }
+
+            p {
+                font-family: $primary-font-bold;
+                font-size: 1.5rem;
+                color: $primary-text;
+            }
+        }
+    }
+}
+
+.edit-profile {
+    background-color: $popup-bg;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+
+    &__container {
+        border-radius: 1.5rem;
+        max-width: 60rem;
+        max-height: 65rem;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &__popup {
+        width: 100%;
+        height: 100%;
+        background-color: $primary-background;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+
+    &__header {
+        padding: 1rem;
+        height: 5.3rem;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 55;
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+
+        &-close {
+            height: 3.6rem;
+            width: 3.6rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .2s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(239, 243, 244, 0.1);
+            }
+
+            svg {
+                height: 45%;
+                width: 45%;
+                fill: $primary-text;
+            }
+        }
+
+        &-title {
+            font-family: $primary-font-bold;
+            font-size: 2rem;
+            color: $primary-text;
+        }
+
+        &-save {
+            margin-left: auto;
+            max-width: 6.444rem;
+            width: 100%;
+            padding: .8rem 0;
+            font-family: $primary-font-bold;
+            font-size: 1.4rem;
+            background-color: $primary-text;
+            color: black;
+            border: none;
+            border-radius: 3rem;
+            cursor: pointer;
+            transition: all .2s;
+
+            &:hover {
+                opacity: .9;
+            }
+        }
+    }
+
+    &__bg {
+        min-height: 19.7rem;
+        padding: 0 2px;
+        position: relative;
+
+        &-image,
+        &-default {
+            height: 100%;
+            width: 100%;
+        }
+
+        &-image {
+            display: block;
+            object-fit: cover;
+        }
+
+        &-default {}
+
+        &-interact {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 1.7rem;
+        }
+
+        &-new,
+        &-remove {
+            backdrop-filter: blur(4px);
+            background-color: rgba(15, 20, 25, 0.75);
+            height: 4rem;
+            width: 4rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .2s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(39, 44, 48, 0.75);
+            }
+
+            svg {
+                height: 50%;
+                width: 50%;
+                fill: $primary-text;
+            }
+        }
+    }
+
+    &__pfp {
+        margin-left: 1.6rem;
+        max-height: 11.6rem;
+        min-height: 11.6rem;
+        max-width: 11.6rem;
+        min-width: 11.6rem;
+        border: 4px solid black;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        bottom: 4.2rem;
+
+        &-image {
+            display: block;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &-new {
+            backdrop-filter: blur(4px);
+            background-color: rgba(15, 20, 25, 0.75);
+            height: 4.4rem;
+            width: 4.4rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all .2s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(39, 44, 48, 0.75);
+            }
+
+            svg {
+                height: 50%;
+                width: 50%;
+                fill: $primary-text;
+            }
+        }
+    }
+
+    &__info {
+        margin-top: -2.7rem;
+        margin-bottom: 1.6rem;
+        padding: 0 1.6rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        &-field {
+            max-height: 6.7rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: $primary-background;
+            border: 1px solid $border-main;
+            border-radius: .5rem;
+            padding: 1rem;
+
+            &--active,
+            &:focus-within {
+                .edit-profile__info-field__top {
+                    display: flex;
+                }
+
+                .edit-profile__info-field__name,
+                .edit-profile__info-field__length {
+                    display: block;
+                }
+
+                .edit-profile__info-field__input {
+                    padding: 0;
+
+                    &::placeholder {
+                        color: transparent;
+                    }
+                }
+            }
+
+            &:focus-within {
+                border: 1px solid $link-text;
+            }
+
+            &__top {
+                width: 100%;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+
+            &__name {
+                display: none;
+                font-family: $primary-font-thin;
+                font-size: 1.3rem;
+                color: $secondary-text;
+                cursor: default;
+                user-select: none;
+            }
+
+            &__length {
+                display: none;
+                font-family: $primary-font-thin;
+                font-size: 1.2rem;
+                color: $secondary-text;
+            }
+
+            &__input {
+                padding: 1.5rem 0;
+                width: 100%;
+                background-color: $primary-background;
+                font-family: $primary-font-thin;
+                font-size: 1.7rem;
+                border: none;
+
+                &:active,
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: $secondary-text;
+                }
+            }
+        }
+    }
+}
+
+.profile-reply {
+    border-bottom: 1px solid $border-main;
+    display: flex;
+    flex-direction: column;
+
+    &__parent,
+    &__main {
+        transition: all .2s;
+    }
+
+    &__parent {
+        position: relative;
+        padding: 1.3rem 1.3rem .65rem 1.3rem;
+
+        &:hover {
+            background-color: rgb(8, 8, 8);
+        }
+    }
+
+    &__main {
+        position: relative;
+        padding: .65rem 1.3rem 1.3rem 1.3rem;
+
+        &:hover {
+            background-color: rgb(8, 8, 8);
+        }
+    }
+}

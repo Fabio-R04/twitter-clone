@@ -1,0 +1,180 @@
+.suggested {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        padding: 0 1rem;
+        height: 5.3rem;
+        background-color: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+
+        &-back,
+        &-settings {
+            height: 3.6rem;
+            width: 3.6rem;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all .2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                background-color: rgba(239, 243, 244, 0.1);
+            }
+
+            svg {
+                height: 55%;
+                width: 55%;
+                fill: $primary-text;
+            }
+        }
+
+        &-back {
+            cursor: pointer;
+        }
+
+        &-title {
+            font-family: $primary-font-bold;
+            font-size: 2rem;
+            color: $primary-text;
+            user-select: none;
+        }
+
+        &-settings {
+            margin-left: auto;
+            cursor: not-allowed;
+        }
+    }
+
+    &__hover {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    &__users {
+        padding-bottom: 13rem;
+        display: flex;
+        flex-direction: column;
+
+        &-user {
+            position: relative;
+            padding: 1.2rem 1.6rem;
+            transition: all .2s;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.03);
+            }
+
+            &__image {
+                &:hover {
+                    .suggested__hover {
+                        opacity: 1;
+                        z-index: 20;
+                    }
+                }
+
+                img {
+                    display: block;
+                    height: 4rem;
+                    width: 4rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    transition: all .2s;
+
+                    &:hover {
+                        opacity: .9;
+                    }
+                }
+            }
+        }
+
+        &-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+
+            &__details {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                &-info {
+                    display: flex;
+                    flex-direction: column;
+
+                    p:nth-child(1),
+                    p:nth-child(2) {
+                        font-size: 1.5rem;
+                        transition: all .2s;
+                    }
+
+                    p:nth-child(1) {
+                        font-family: $primary-font-bold;
+                        color: $primary-text;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    p:nth-child(2) {
+                        font-family: $primary-font-thin;
+                        color: $secondary-text;
+                    }
+                }
+
+                &-follow,
+                &-following {
+                    margin-left: auto;
+                    padding: .8rem 2rem;
+                    font-family: $primary-font-bold;
+                    font-size: 1.4rem;
+                    border: 1px solid transparent;
+                    border-radius: 3rem;
+                    transition: all .2s;
+                    cursor: pointer;
+                }
+
+                &-follow {
+                    max-width: 8.463rem;
+                    width: 100%;
+                    background-color: $primary-text;
+                    color: black;
+
+                    &:hover {
+                        opacity: .9;
+                    }
+                }
+
+                &-following {
+                    max-width: 10.45rem;
+                    width: 100%;
+                    background-color: transparent;
+                    color: $primary-text;
+                    border: 1px solid rgb(83, 100, 113);
+                }
+            }
+
+            &__bio {
+                font-family: $primary-font-thin;
+                font-size: 1.5rem;
+                color: $primary-text;
+            }
+        }
+    }
+}

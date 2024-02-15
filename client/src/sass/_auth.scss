@@ -1,0 +1,316 @@
+.auth {
+    height: 100vh;
+    width: 100%;
+    background-color: $primary-background;
+    display: flex;
+    flex-direction: column;
+
+    &__content {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        @media only screen and (max-width: $bp-large) {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+
+        &-logo {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media only screen and (max-width: $bp-large) {
+                display: none;
+            }
+
+            svg {
+                max-width: 45%;
+                max-height: 45%;
+                width: 100%;
+                fill: $primary-text;
+
+                g {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        &-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            @media only screen and (max-width: 31.875em) {
+                align-items: center;
+            }
+
+            &__title {
+                font-family: $primary-font-heavy;
+                font-size: 6.4rem;
+                margin-bottom: 5rem;
+
+                @media only screen and (max-width: 31.875em) {
+                    font-size: 5rem;
+                }
+            }
+
+            &__subtitle {
+                font-family: $primary-font-heavy;
+                font-size: 3.1rem;
+                margin-bottom: 3rem;
+            }
+
+            &__options {
+                margin-bottom: 5rem;
+                max-width: 32rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            &__google,
+            &__demo,
+            &__register {
+                padding: 1.2rem 0;
+                font-family: $primary-font-bold;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 3rem;
+                cursor: pointer;
+                transition: all .2s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                svg {
+                    height: 2rem;
+                    width: 2rem;
+                }
+            }
+
+            &__google,
+            &__demo {
+                color: black;
+                background-color: white;
+
+                &:hover {
+                    background-color: rgba($color: white, $alpha: .9);
+                }
+
+                &:active {
+                    background-color: rgba($color: white, $alpha: .8);
+                }
+            }
+
+            &__or {
+                font-size: 1.6rem;
+                display: grid;
+                grid-template-columns: 1fr max-content 1fr;
+                gap: 1rem;
+                align-items: center;
+
+                &::before,
+                &::after {
+                    content: "";
+                    height: 1px;
+                    background-color: $border-main;
+                }
+            }
+
+            &__register {
+                color: white;
+                background-color: $primary-button;
+
+                &:hover {
+                    background-color: $primary-button-hover;
+                }
+            }
+
+            &__terms {
+                font-size: 1.2rem;
+                color: $secondary-text;
+
+                span {
+                    font-family: $primary-font-thin;
+                    color: $link-text;
+                    transition: all .2s;
+                    cursor: not-allowed;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            &__login {
+                max-width: 32rem;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 1.8em;
+
+                p {
+                    font-family: $primary-font-heavy;
+                    font-size: 1.8rem;
+                }
+
+                button {
+                    background-color: transparent;
+                    padding: 1.2rem 0;
+                    color: $primary-button;
+                    font-family: $primary-font-bold;
+                    font-size: 1.5rem;
+                    border: 1px solid rgb(88, 95, 100);
+                    border-radius: 3rem;
+                    cursor: pointer;
+                    transition: all .2s;
+
+                    &:hover {
+                        background-color: rgba($color: $primary-button, $alpha: .1);
+                    }
+                }
+            }
+        }
+    }
+
+    &__footer {
+        padding: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+
+        p {
+            color: $secondary-text;
+            font-size: 1.3rem;
+            transition: all .2s;
+            cursor: not-allowed;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__container {
+        height: 100vh;
+        width: 100%;
+        background-color: $popup-bg;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__popup {
+        min-height: 50.4rem;
+        max-width: 60rem;
+        width: 100%;
+        position: relative;
+        background-color: $primary-background;
+        padding: 2rem 8rem;
+        border-radius: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+
+        &-close {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            height: 3.5rem;
+            width: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .2s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(239, 243, 244, 0.1);
+            }
+
+            svg {
+                height: 50%;
+                width: 50%;
+            }
+        }
+
+        &-logo {
+            position: absolute;
+            top: 2.7rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 3rem;
+            width: 3rem;
+
+            svg {
+                height: 100%;
+                width: 100%;
+                fill: $primary-text;
+            }
+        }
+
+        &-title {
+            margin-top: 2rem;
+            font-family: $primary-font-heavy;
+            font-size: 3rem;
+        }
+
+        &-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            input {
+                padding: 2rem .8rem;
+                background-color: $primary-background;
+                font-family: $primary-font;
+                font-size: 1.6rem;
+                color: $primary-text;
+                border: 1px solid $border-main;
+                border-radius: .3rem;
+                transition: all .2s;
+
+                &::placeholder {
+                    color: $secondary-text;
+                }
+
+                &:active,
+                &:focus {
+                    outline: 1px solid $primary-button;
+                }
+            }
+
+            button {
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                padding: 1.5rem 0;
+                background-color: white;
+                font-family: $primary-font-heavy;
+                font-size: 1.6rem;
+                color: black;
+                border: none;
+                border-radius: 3rem;
+                cursor: pointer;
+                transition: all .2s;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+}

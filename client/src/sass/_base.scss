@@ -1,0 +1,75 @@
+// Background Color
+$primary-background: #000000;
+
+// Text Color
+$primary-text: rgb(231, 233, 234);
+$secondary-text: rgb(113, 118, 123);
+$link-text: rgb(119, 167, 255);
+$link-text-dark: rgb(24, 119, 242);
+$error-text: rgb(244, 33, 46);
+$error-text-dark: rgb(177, 52, 63);
+
+// Button
+$primary-button: rgb(29, 155, 240);
+$primary-button-hover: rgb(26, 140, 216);
+$secondary-button: rgb(239, 239, 239);
+$secondary-button-hover: rgb(219, 219, 219);
+
+// Hover 
+$hover-overlay: rgba(0, 0, 0, .05);
+
+// Popup Background
+$popup-bg: rgba(91, 112, 131, 0.4);
+$popup-bg-dark: rgba(0, 0, 0, .65);
+$popup-bg-light: rgba(0, 0, 0, .3);
+
+// Border
+$border-main: rgb(47, 51, 54);
+$border-light: rgb(235, 235, 235);
+
+// Font Family
+$primary-font: TwitterChirpRegular;
+$primary-font-thin: TwitterChirpThin;
+$primary-font-medium: TwitterChirpMedium;
+$primary-font-bold: TwitterChirpBold;
+$primary-font-heavy: TwitterChirpHeavy;
+
+// Responsive Breakpoints 
+$bp-extra-large: 87.5em; // 1400px
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 600px
+$bp-extra-small: 25em; // 450px
+
+:root {
+    color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 55%;
+    }
+}
+
+body {
+    font-family: $primary-font;
+    color: $primary-text;
+    background-color: $primary-background;
+}
+
+// REUSABLE
+.mt-sm {
+    margin-top: 1rem !important;
+}

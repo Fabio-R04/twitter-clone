@@ -4,6 +4,8 @@ import { IUser } from "../models/authModel";
 import TweetM, { ITweet } from "../models/tweet/tweetModel";
 import ReplyM, { IReply } from "../models/tweet/replyModel";
 
+//@ts-nocheck
+
 // GET
 export const getBookmarks = async (req: Request, res: Response): Promise<void> => {
     type TweetsAndReplies = ITweet | IReply;

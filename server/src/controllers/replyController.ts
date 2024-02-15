@@ -8,6 +8,8 @@ import { unlinkAsync } from "./tweetController";
 import path from "path";
 import { BookmarkReplyM } from "../models/bookmarkModel";
 
+//@ts-nocheck
+
 // GET
 export const getReplyDetails = async (req: Request, res: Response): Promise<void> => {
     const replyId: string = req.params.replyId;

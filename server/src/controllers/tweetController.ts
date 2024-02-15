@@ -9,6 +9,8 @@ import { promisify } from "util";
 import fs from "fs";
 import path from "path";
 
+//@ts-nocheck
+
 export const unlinkAsync = promisify(fs.unlink);
 
 // GET

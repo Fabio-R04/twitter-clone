@@ -491,6 +491,7 @@ export const retweetPost = async (req: Request, res: Response): Promise<void> =>
 }
 
 // DELETE
+//@ts-ignore
 export const deleteTweet = async (req: Request, res: Response): Promise<void> => {
     const tweetId: string = req.params.tweetId;
 

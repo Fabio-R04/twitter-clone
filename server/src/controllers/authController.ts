@@ -10,8 +10,6 @@ import ReplyM, { IReply } from "../models/tweet/replyModel";
 import LikeM, { ILikeReply, ILikeTweet, LikeReplyM } from "../models/tweet/likeModel";
 import RetweetM, { IRetweetPost, IRetweetReply, RetweetReplyM } from "../models/tweet/retweetModel";
 
-//@ts-nocheck
-
 // REUSABLE
 const genToken = (id: string): string => {
     const jwtSecret: string = `${process.env.JWT_SECRET}`;
